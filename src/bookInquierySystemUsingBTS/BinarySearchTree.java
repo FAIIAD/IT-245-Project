@@ -45,12 +45,12 @@ public class BinarySearchTree {
             return root;
         }
 
-        // Value is greater than root's key
+        // Value is less than root's key
         if (isbn.compareTo(root.book.isbn) < 0) {
             return searchRec(root.left, isbn);
         }
 
-        // Value is less than root's key
+        // Value is greater than root's key
         return searchRec(root.right, isbn);
     }
 }
