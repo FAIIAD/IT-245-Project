@@ -1,4 +1,6 @@
-class Book implements Comparable {
+package bookInquierySystemUsingBTS;
+
+public class Book implements Comparable<Book> {
     String isbn;
     String title;
     String author;
