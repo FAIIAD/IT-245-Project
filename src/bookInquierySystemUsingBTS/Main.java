@@ -1,4 +1,4 @@
-package bookInquirySystemUsingBTS;
+package bookInquirySystem;
 
 public class Main {
 
