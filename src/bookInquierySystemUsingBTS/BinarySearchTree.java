@@ -1,4 +1,4 @@
-package bookInquierySystemUsingBTS;
+package bookInquirySystem;
 
 public class BinarySearchTree {
     Node root;
