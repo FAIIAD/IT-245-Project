@@ -1,4 +1,4 @@
-package bookInquierySystemUsingBTS;
+package bookInquirySystem;
 
 public class Book implements Comparable<Book> {
     String isbn;
