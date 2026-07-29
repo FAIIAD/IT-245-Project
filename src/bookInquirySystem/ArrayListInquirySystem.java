@@ -1,27 +1,29 @@
 package bookInquirySystem;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ArrayListInquirySystem {
-    private List<Book> books;
-
+	// Created listed to hold Book objects 
+    ArrayList<Book> books;
+    // This sets the arraylist to empty 
     public ArrayListInquirySystem() {
-        this.books = new ArrayList<>();
+        books = new ArrayList<>();
     }
-
-    // Method to insert a book into the ArrayList O(1)
+    // This inserts a book to the end of the arraylist 
     public void insert(Book book) {
         books.add(book);
     }
 
-    // Method to search for a book using Linear Search O(n)
-    public Book search(String isbn) {
-        for (Book book : books) {
-            if (book.isbn.equals(isbn)) {
-                return book;
+    // This is for linear search method 
+    public Book search(String searchTitle) {
+    	// We use for loop to go through every single element in the list resulting in O(n) Time complexity  
+        for (int i = 0; i < books.size(); i++) {
+        	// This will show the result when found
+            if (books.get(i).title.equals(searchTitle)) {
+                return books.get(i); // Retrieve the book
             }
         }
-        return null; // Book not found
+        // If book is not in the list
+        return null; 
     }
 }
