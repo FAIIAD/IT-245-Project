@@ -3,21 +3,21 @@ package bookInquirySystem;
 public class Main {
 
     public static void main(String[] args) {
-    	// First, we created two empty versions for our search systems 
+    	// Here, we created two empty versions for our search systems 
         BinarySearchTree bst = new BinarySearchTree();
         ArrayListInquirySystem arrayList = new ArrayListInquirySystem();
 
-        // 1. Basic Test - Demonstrating that the code can organize, search and retrieve
+        // Creating a sample to demonstrate that the code can organize, search and retrieve
         Book b1 = new Book("111", "مقدمة ابن خلدون", "ابن خلدون");
         Book b2 = new Book("222", "حياة في الإدارة", "د.غازي القصيبي");
         Book b3 = new Book("333", "الأمير", "ميكيافيلي");
         
-        // inserting books in the tree
+        // Inserting books in the BinarySearchTree
         bst.insert(b1);
         bst.insert(b2);
         bst.insert(b3);
         
-        // inserting books in the arraylist
+        // Inserting books in the arrayList
         arrayList.insert(b1);
         arrayList.insert(b2);
         arrayList.insert(b3);
@@ -29,7 +29,7 @@ public class Main {
         if (foundBook != null) {
             System.out.println("Success! We retrieved: " + foundBook.toString());
         } else {
-            System.out.println("Sorry, book not found.");
+            System.out.println("Sorry, book was not found.");
         }
         System.out.println("-------------------------");
 
@@ -43,7 +43,7 @@ public class Main {
         for (int i = 0; i < 100000; i++) {
             int randomNum = (int) (Math.random() * 1000000);
             String randomTitle = "Book " + randomNum;
-            // create a fake book as if we search for different random book every time 
+            // create a fake book as if we are searching for different random book every time 
             Book newBook = new Book("ISBN" + i, randomTitle, "Author " + i);
             
             // Added to both system to compare 
