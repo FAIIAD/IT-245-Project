@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ArrayListInquirySystem {
 	// Created listed to hold Book objects 
-    ArrayList<Book> books;
+    private final ArrayList<Book> books;
     // This sets the arraylist to empty 
     public ArrayListInquirySystem() {
         books = new ArrayList<>();
