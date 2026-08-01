@@ -22,17 +22,42 @@ public class Main {
         arrayList.insert(b2);
         arrayList.insert(b3);
         
-        //first scenario is trying to find a book that we know is exist 
-        System.out.println("--- Basic Search Test ---");
-        Book foundBook = bst.search("حياة في الإدارة");
-        
-        if (foundBook != null) {
-            System.out.println("Success! We retrieved: " + foundBook.toString());
-        } else {
-            System.out.println("Sorry, book was not found.");
-        }
-        System.out.println("-------------------------");
+       // First scenario: search for a book that exists
+System.out.println("--- Basic Search Test ---");
 
+String existingTitle = "حياة في الإدارة";
+
+Book treeFoundBook = bst.search(existingTitle);
+Book listFoundBook = arrayList.search(existingTitle);
+
+if (treeFoundBook != null) {
+    System.out.println("BST result: " + treeFoundBook);
+} else {
+    System.out.println("BST result: Book not found.");
+}
+
+if (listFoundBook != null) {
+    System.out.println("ArrayList result: " + listFoundBook);
+} else {
+    System.out.println("ArrayList result: Book not found.");
+}
+
+// Second scenario: search for a book that does not exist
+String missingTitle = "كتاب غير موجود";
+
+Book missingTreeBook = bst.search(missingTitle);
+Book missingListBook = arrayList.search(missingTitle);
+
+if (missingTreeBook == null) {
+    System.out.println("BST missing search: Book not found.");
+}
+
+if (missingListBook == null) {
+    System.out.println("ArrayList missing search: Book not found.");
+}
+
+System.out.println("-------------------------");
+        
         // below block of code is for performance test 
         System.out.println("Adding 100,000 books to test speed...");
         
@@ -42,7 +67,7 @@ public class Main {
         // Created a loop that runs 100000 times
         for (int i = 0; i < 100000; i++) {
             int randomNum = (int) (Math.random() * 1000000);
-            String randomTitle = "Book " + randomNum;
+            String randomTitle = "Book " + randomNum + "-" + i;
             // create a fake book as if we are searching for different random book every time 
             Book newBook = new Book("ISBN" + i, randomTitle, "Author " + i);
             
@@ -60,7 +85,7 @@ public class Main {
 
         // Calculating time for the ArrayList
         long start1 = System.nanoTime();
-        arrayList.search(targetTitle);
+        Book listResult = arrayList.search(targetTitle);
         long end1 = System.nanoTime();   
         long timeForList = end1 - start1; 
 
@@ -70,9 +95,13 @@ public class Main {
         long end2 = System.nanoTime();   
         long timeForTree = end2 - start2; 
 
-        if (treeResult != null) {
-            System.out.println("Retrieved from large list: " + treeResult.toString());
-        }
+       if (listResult != null) {
+    System.out.println("Retrieved from ArrayList: " + listResult);
+}
+
+if (treeResult != null) {
+    System.out.println("Retrieved from Binary Search Tree: " + treeResult);
+}
 
         // Print final results
         System.out.println();
