@@ -8,9 +8,9 @@ public class Main {
         ArrayListInquirySystem arrayList = new ArrayListInquirySystem();
 
         // Creating a sample to demonstrate that the code can organize, search and retrieve
-        Book b1 = new Book("111", "مقدمة ابن خلدون", "ابن خلدون");
-        Book b2 = new Book("222", "حياة في الإدارة", "د.غازي القصيبي");
-        Book b3 = new Book("333", "الأمير", "ميكيافيلي");
+        Book b1 = new Book("978-0-306-40615-7", "مقدمة ابن خلدون", "ابن خلدون");
+        Book b2 = new Book("978-614-486-092-2", "حياة في الإدارة", "د.غازي القصيبي");
+        Book b3 = new Book("978-92-95055-02-5", "الأمير", "ميكيافيلي");
         
         // Inserting books in the BinarySearchTree
         bst.insert(b1);
@@ -43,7 +43,7 @@ if (listFoundBook != null) {
 }
 
 // Second scenario: search for a book that does not exist
-String missingTitle = "كتاب غير موجود";
+String missingTitle = "Book not found";
 
 Book missingTreeBook = bst.search(missingTitle);
 Book missingListBook = arrayList.search(missingTitle);
@@ -80,20 +80,21 @@ System.out.println("-------------------------");
                 targetTitle = randomTitle;
             }
         }
-
+        // Create non exist book to demonstrate worst case scenario 
+        targetTitle = "Z dummy book";
         System.out.println("We are going to search for: " + targetTitle);
 
         // Calculating time for the ArrayList
-        long start1 = System.nanoTime();
+        long startTimeList = System.nanoTime();
         Book listResult = arrayList.search(targetTitle);
-        long end1 = System.nanoTime();   
-        long timeForList = end1 - start1; 
+        long endTimeList = System.nanoTime();   
+        long timeForList = endTimeList - startTimeList; 
 
         // Calculating time for the Binary Search Tree
-        long start2 = System.nanoTime(); 
+        long startTimeTree = System.nanoTime(); 
         Book treeResult = bst.search(targetTitle); 
-        long end2 = System.nanoTime();   
-        long timeForTree = end2 - start2; 
+        long endTimeTree = System.nanoTime();   
+        long timeForTree = endTimeTree - startTimeTree; 
 
        if (listResult != null) {
     System.out.println("Retrieved from ArrayList: " + listResult);
